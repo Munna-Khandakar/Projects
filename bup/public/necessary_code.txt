@@ -1,0 +1,27 @@
+current date and day:
+			$date = date('d-m-Y');
+			$day = Carbon::now()->format( 'l' );
+
+convert date format:
+		$original_date =$request->selected_date;
+        $timestamp = strtotime($original_date);
+        $new_date = date("d-m-Y", $timestamp);
+
+get day name of specific date:
+		$specificDate = strtotime($request->selected_date);
+        $specificDate = date('l', $specificDate);
+
+To get tomorrow from now :
+        $d = new DateTime('+1day');
+        $tomorrow = $d->format('d/m/Y h.i.s');
+        echo $tomorrow;
+
+Javascript:
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = mm + '-' + dd + '-' + yyyy;
+    
+    var my_date = new Date();  
+    var tomorrow_date =       (my_date .getDate()+1)  + "-" + (my_date .getMonth()+1) + "-" + my_date .getFullYear();
